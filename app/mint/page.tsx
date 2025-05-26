@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 import { Connection, clusterApiUrl, PublicKey } from '@solana/web3.js'
 import { Metaplex, walletAdapterIdentity } from '@metaplex-foundation/js'

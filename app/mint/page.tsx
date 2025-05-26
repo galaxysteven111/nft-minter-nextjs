@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { Connection, clusterApiUrl, PublicKey } from '@solana/web3.js'
+import { Connection, clusterApiUrl } from '@solana/web3.js'
 import { Metaplex, walletAdapterIdentity } from '@metaplex-foundation/js'
 import { useWallet } from '@solana/wallet-adapter-react'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
@@ -8,7 +8,7 @@ import '@solana/wallet-adapter-react-ui/styles.css'
 
 const connection = new Connection(clusterApiUrl('devnet'))
 
-function MintNFTPage() {
+export default function MintPage() {
   const wallet = useWallet()
   const [name, setName] = useState('')
   const [desc, setDesc] = useState('')
@@ -24,7 +24,9 @@ function MintNFTPage() {
     setStatus('📤 上傳圖片至 NFT.Storage 中...')
     const uploadRes = await fetch('https://api.nft.storage/upload', {
       method: 'POST',
-      headers: { Authorization: `Bearer dd804f84.f5b0889412664599857188135bc7786f` },
+      headers: {
+        Authorization: `Bearer dd804f84.f5b0889412664599857188135bc7786f`
+      },
       body: imageFile,
     })
     const uploadJson = await uploadRes.json()
@@ -77,5 +79,3 @@ function MintNFTPage() {
     </div>
   )
 }
-
-export default MintNFTPage

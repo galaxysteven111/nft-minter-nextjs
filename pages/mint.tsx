@@ -1,8 +1,6 @@
 // Next.js + Metaplex NFT Mint 實作
 // 此程式碼整合 Phantom 錢包、NFT.Storage 上傳、Solana Devnet mint NFT 功能
 
-'use client'
-
 import { useEffect, useState } from 'react'
 import { Connection, clusterApiUrl, PublicKey } from '@solana/web3.js'
 import { Metaplex, keypairIdentity, walletAdapterIdentity, bundlrStorage } from '@metaplex-foundation/js'
